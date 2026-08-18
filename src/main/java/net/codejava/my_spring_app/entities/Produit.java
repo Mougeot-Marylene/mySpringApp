@@ -1,4 +1,4 @@
-package net.codejava.my_spring_app.entities;
+package net.codejava.my_spring_app.Entities;
 
 import java.util.Date;
 import jakarta.persistence.Entity;

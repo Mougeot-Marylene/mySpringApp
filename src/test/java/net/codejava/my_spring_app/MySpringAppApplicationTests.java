@@ -7,14 +7,14 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import net.codejava.my_spring_app.Entities.Produit;
 import net.codejava.my_spring_app.Repository.ProduitRepository;
-import net.codejava.my_spring_app.entities.Produit;
 
 @SpringBootTest
 class MySpringAppApplicationTests {
 
-	@Autowired
-	//Injection de dependance
+	@Autowired //Injection de dependance PAR CHAMP, plus dur a tester que final	
 	private ProduitRepository produitRepository; //ProduitRepository est notre interface
 
 

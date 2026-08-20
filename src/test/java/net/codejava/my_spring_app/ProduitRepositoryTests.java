@@ -105,4 +105,22 @@ class ProduitRepositoryTests {
 			System.out.println(p);
 		}
 	}
+
+	// Retourne les produits dont les noms sont triés par odre ascendant (petit au plus grand)
+	@Test
+	public void testFindByOrderByNomProduitAsc(){
+		List<Produit> prods = produitRepository.findByOrderByNomProduitAsc();
+		for(Produit p:prods){
+			System.out.println(p);
+		}
+	}
+
+    //Retourne les produits dont les noms sont triés par odre ascendant (petit au plus grand) et les prix pas ordre descendant=> deuxieme methode
+	@Test
+	public void testTrierProduitNomPrix(){
+		List<Produit> prods = produitRepository.trierProduitsNompPrix();
+		for(Produit p:prods){
+			System.out.println(p);
+		}
+	}
 }

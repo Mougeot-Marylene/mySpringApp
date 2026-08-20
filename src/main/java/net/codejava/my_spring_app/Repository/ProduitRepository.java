@@ -22,6 +22,15 @@ public interface ProduitRepository extends JpaRepository<Produit, Long> {
     @Query("select p from Produit p where p.categorie = ?1")
     List<Produit> findByCategorie(Categorie categorie);
     
+
+    //retourne les produit d'une catgerorie
     List<Produit> findByCategorieIdCat(Long id);
+
+    //Retourne les produits dont les noms sont triés par odre ascendant (petit au plus grand) => premiere methode
+    List<Produit> findByOrderByNomProduitAsc();
+
+    //Retourne les produits dont les noms sont triés par odre ascendant (petit au plus grand) et les prix pas ordre descendant=> deuxieme methode
+    @Query("select p from Produit p order by p.nomProduit ASC, p.prixProduit DESC")
+    List<Produit> trierProduitsNompPrix();
 
 }

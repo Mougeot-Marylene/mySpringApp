@@ -2,7 +2,6 @@ package net.codejava.my_spring_app.Service;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import net.codejava.my_spring_app.Entities.Produit;

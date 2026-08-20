@@ -31,6 +31,6 @@ public interface ProduitRepository extends JpaRepository<Produit, Long> {
 
     //Retourne les produits dont les noms sont triés par odre ascendant (petit au plus grand) et les prix pas ordre descendant=> deuxieme methode
     @Query("select p from Produit p order by p.nomProduit ASC, p.prixProduit DESC")
-    List<Produit> trierProduitsNompPrix();
+    List<Produit> trierProduitsNomspPrix();
 
 }

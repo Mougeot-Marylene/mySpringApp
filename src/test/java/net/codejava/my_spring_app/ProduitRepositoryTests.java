@@ -117,8 +117,8 @@ class ProduitRepositoryTests {
 
     //Retourne les produits dont les noms sont triés par odre ascendant (petit au plus grand) et les prix pas ordre descendant=> deuxieme methode
 	@Test
-	public void testTrierProduitNomPrix(){
-		List<Produit> prods = produitRepository.trierProduitsNompPrix();
+	public void testTrierProduitsNomsPrix(){
+		List<Produit> prods = produitRepository.trierProduitsNomspPrix();
 		for(Produit p:prods){
 			System.out.println(p);
 		}

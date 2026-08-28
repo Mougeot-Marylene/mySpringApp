@@ -17,53 +17,60 @@ import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
-
-@RestController // dis à spring que cette classe va contenir des methodes qui seront des web service qui seront consommé à travers un navigateur
-@RequestMapping("/api") // sert à définir une URL (une route) sur laquelle le Controller va répondre. C'est l'annotation la plus générale pour dire "cette classe ou cette méthode répond à telle adresse".
-@CrossOrigin  // autorise les requêtes cross-origin (CORS), pour qu'Angular puisse consommer ce web service (api)
+@RestController // dis à spring que cette classe va contenir des methodes qui seront des web
+                // service qui seront consommé à travers un navigateur
+@RequestMapping("/api") // sert à définir une URL (une route) sur laquelle le Controller va répondre.
+                        // C'est l'annotation la plus générale pour dire "cette classe ou cette méthode
+                        // répond à telle adresse".
+@CrossOrigin // autorise les requêtes cross-origin (CORS), pour qu'Angular puisse consommer
+             // ce web service (api)
 @AllArgsConstructor // genere constructeur avec tout les attributs
 
 public class ProduitRestController {
 
     private final ProduitService produitService;
-    
 
-    /* Récupére tous les produit */ 
-    //@GetMapping() // equivalent de @RequestMapping(method=RequestMethod.GET)
-     @RequestMapping(method=RequestMethod.GET)
-    public List<Produit> getAllProduits(){
+    /* Récupére tous les produit */
+    // @GetMapping() // equivalent de @RequestMapping(method=RequestMethod.GET)
+    @RequestMapping(method = RequestMethod.GET)
+    public List<Produit> getAllProduits() {
         return produitService.getAllProduits();
     }
 
     /* Récupère un produit par son id */
     @GetMapping("/{id}")
-    public Produit getProduitById(@PathVariable("id") Long id){
+    public Produit getProduitById(@PathVariable("id") Long id) {
         return produitService.getProduit(id);
     }
 
     /* Création d'un produit */
     @PostMapping()
-    public Produit createProduit(@RequestBody Produit produit){
+    public Produit createProduit(@RequestBody Produit produit) {
         return produitService.saveProduit(produit);
     }
 
     /* Modifier un produit */
     @PutMapping()
-    public Produit modifieProduit(@RequestBody Produit produit){
+    public Produit modifieProduit(@RequestBody Produit produit) {
         return produitService.updateProduit(produit);
     }
 
     /* Supprimer un produit */
     @DeleteMapping("/{id}")
-    public void deleProduit(@PathVariable("id") Long id){
+    public void deleProduit(@PathVariable("id") Long id) {
         produitService.deleteProduitById(id);
     }
 
     /* retorune produit ayant une catégorie données */
     @GetMapping("/produitCat/{idCat}")
-    public List<Produit> getProduitsByCatId(@PathVariable("idCat") long idCat){
+    public List<Produit> getProduitsByCatId(@PathVariable("idCat") long idCat) {
         return produitService.findByCategorieIdCat(idCat);
     }
-    
+
+    // rechercher par nom
+    @GetMapping("/prodsByName/{nom}")
+    public List<Produit> findByNomProduitContains(@PathVariable("nom") String nom) {
+        return produitService.findByNomProduitContains(nom);
+    }
 
 }

@@ -18,9 +18,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
 
-
-
-
 @RestController // dis à spring que cette classe va contenir des methodes qui seront des web service qui seront consommé à travers un navigateur
 @RequestMapping("/api") // sert à définir une URL (une route) sur laquelle le Controller va répondre. C'est l'annotation la plus générale pour dire "cette classe ou cette méthode répond à telle adresse".
 @CrossOrigin  // autorise les requêtes cross-origin (CORS), pour qu'Angular puisse consommer ce web service (api)

@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController // dis à spring que cette classe va contenir des methodes qui seront des web
                 // service qui seront consommé à travers un navigateur
@@ -67,7 +69,6 @@ public class ProduitRestController {
         return produitService.findByCategorieIdCat(idCat);
     }
 
-    // rechercher par nom
     @GetMapping("/prodsByName/{nom}")
     public List<Produit> findByNomProduitContains(@PathVariable("nom") String nom) {
         return produitService.findByNomProduitContains(nom);

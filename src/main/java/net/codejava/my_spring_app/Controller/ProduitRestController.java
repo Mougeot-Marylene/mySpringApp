@@ -2,6 +2,7 @@ package net.codejava.my_spring_app.Controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController // dis à spring que cette classe va contenir des methodes qui seront des web
@@ -30,7 +30,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 public class ProduitRestController {
 
-    private final ProduitService produitService;
+    @Autowired
+    private ProduitService produitService;
 
     /* Récupére tous les produit */
     // @GetMapping() // equivalent de @RequestMapping(method=RequestMethod.GET)
